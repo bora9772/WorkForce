@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<title>WorkForce</title>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/home.css"/>
+
+<div id="title">
+  <div id="work">
+    <h1>
+    WorkForce®
+  </h1>
+  </div>
+  <div id="goldman">
+    <img src="/images/goldman.jpg" width="200px">
+  </div>
+</div>
+
+{% if current_person %}
+<div class="panel">
+  <div class="buttons">
+    <a href="/">Home</a>
+  </div>
+  <div class="buttons">
+    <a href="/profile?key={{current_person.key.urlsafe()}}">Profile</a>
+  </div>
+  <div class="buttons">
+    <a href="/upload_resume?key={{current_person.key.urlsafe()}}">Resume Review</a>
+  </div>
+  <div class="buttons">
+    <a href="/tips?key={{current_person.key.urlsafe()}}">Tips</a>
+  </div>
+  <div class="buttons">
+    <a href="{{logout_url}}">Log out</a>
+  </div>
+</div>
+
+{% else %}
+<div class="panel">
+  <div class="buttons">
+    <a href="{{create_account}}">Sign Up!</a>
+  </div>
+  <div class="buttons">
+    <a href="{{login_url}}">Log in</a>
+  </div>
+</div>
+{% endif %}
+
+<div id="body">
+  <div id="mission">
+    <br><br><br><br>WorkForce® is an online career developer to assist entrepreneurs in writing professional resumes. Our algorithm is designed to make sure you have a perfect resume that is error free. <br><br><br>
+     <br><br><div style="font-size: 15px">We are NOT incorporated with Goldman Sachs in any way or form</div>
+  </div>
+  <div id="picture">
+    <br><br><br><br><br><br>
+    <img src="https://cdn-images-1.medium.com/max/2000/1*kauBinmv1CygIXKfE8eVYg.png" width="600" align="bottom" style="margin-right:40px;">
+  </div>
+</div>
+
+<script src="/js/jquery.js"></script>
